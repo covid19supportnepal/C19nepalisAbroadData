@@ -45,16 +45,40 @@ function na_covid19Nepal_install_data() {
 	$jsonNA = file_get_contents('https://www.covid19.nrna.org.np/wp-admin/admin-ajax.php?action=wp_ajax_ninja_tables_public_action&table_id=2655&target_action=get-all-data&default_sorting=old_first');
 	$objNA = json_decode($jsonNA);
 
-	$na_table_name = $wpdb->prefix . 'na_covid19Nepal';
+  $na_table_name = $wpdb->prefix . 'na_covid19Nepal';
+
+  //open a file stream to write to
+  $file = plugin_dir_path( __FILE__ ) . '/js/nepalisAbroad.js';
+	$open = fopen( $file, "w" );
+	$countriesArray='[';
+	$total;
+	$groupDate=time();
+	$asOfTime = date('Y-m-d H:i:s',$groupDate);
+	$asOfDate = date('Y-m-d',$groupDate);
 
 	foreach($objNA as $countryData) {
-			$groupDate=time();
-			$asOfTime = date('Y-m-d H:i:s',$groupDate);
 			$country= $countryData->value->country;
 			$region= $countryData->value->region;
 			$infected= $countryData->value->infected;
 			$fatality= $countryData->value->fatality;
 			$recovered= $countryData->value->recovered;
+
+			if($country == "") {
+				$total = '{
+					infected: "'.$infected.'",
+					fatality: "'.$fatality.'",
+					recovered: "'.$recovered.'"
+				}';
+			} else {
+				$countriesArray = $countriesArray .
+				'{
+					country: "'.$country.'",
+					region: "'.$region.'",
+					infected: "'.$infected.'",
+					fatality: "'.$fatality.'",
+					recovered: "'.$recovered.'"
+				},';
+			}
 
 			$wpdb->insert(
 				$na_table_name,
@@ -68,8 +92,22 @@ function na_covid19Nepal_install_data() {
 					'fatality'=>$fatality,
 					'recovered'=>$recovered,
 				)
-			);
+      );
+
 	}
+	$countriesArray = rtrim($countriesArray, ",");
+	$countriesArray = $countriesArray. ']';
+
+	$varToWrite = 'var covidNepalisAbroad=
+										{
+											asOfDate: "'.$asOfDate.'",
+											total: '.$total.',
+											countries: '.$countriesArray.'
+										};';
+
+	$write = fwrite( $open, $varToWrite );
+	//close the filestream
+	fclose( $open );
 	//END: FETCH NEPALIS ABROAD
 }
 
