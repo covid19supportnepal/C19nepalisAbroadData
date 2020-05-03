@@ -13,7 +13,7 @@ include_once dirname( __FILE__ ) . '/db.php';
 register_activation_hook( __FILE__, 'na_covid19Nepal_install' );
 register_activation_hook( __FILE__, 'na_covid19Nepal_install_data' );
 
-add_action("wp_footer", "updateDataNepalisAbroad");
+// add_action("wp_footer", "updateDataNepalisAbroad");
 
 function updateDataNepalisAbroad(){
 	global $wpdb;
@@ -36,15 +36,14 @@ function updateDataNepalisAbroad(){
 
 register_deactivation_hook( __FILE__, 'na_nepalData_remove_database' );
 function na_nepalData_remove_database() {
-     global $wpdb;
+   global $wpdb;
 
-     $na_table_name = $wpdb->prefix . 'na_covid19Nepal';
-     $naSql = "DROP TABLE IF EXISTS $na_table_name";
-     $wpdb->query($naSql);
+   $na_table_name = $wpdb->prefix . 'na_covid19Nepal';
+   $naSql = "DROP TABLE IF EXISTS $na_table_name";
+   $wpdb->query($naSql);
 
-		 delete_option("$na_covid19Nepal_db_version");
-     wp_clear_scheduled_hook('na_covid19Nepal_update_data');
-
+	delete_option("$na_covid19Nepal_db_version");
+   wp_clear_scheduled_hook('na_covid19Nepal_update_data');
 }
 
 ?>
