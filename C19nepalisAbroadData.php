@@ -9,6 +9,8 @@
    License: GPL2
    */
 
+defined( 'ABSPATH' ) or die( 'No direct access please!' );
+
 include_once dirname( __FILE__ ) . '/db.php';
 register_activation_hook( __FILE__, 'na_covid19Nepal_install' );
 register_activation_hook( __FILE__, 'na_covid19Nepal_install_data' );

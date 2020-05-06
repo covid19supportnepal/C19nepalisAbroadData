@@ -1,4 +1,5 @@
 <?php
+defined( 'ABSPATH' ) or die( 'No direct access please!' );
 
 global $na_covid19Nepal_db_version;
 $na_covid19Nepal_db_version = '1.0';
