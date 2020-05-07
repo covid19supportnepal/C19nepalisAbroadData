@@ -15,7 +15,12 @@ include_once dirname( __FILE__ ) . '/db.php';
 register_activation_hook( __FILE__, 'na_covid19Nepal_install' );
 register_activation_hook( __FILE__, 'na_covid19Nepal_install_data' );
 
-// add_action("wp_footer", "updateDataNepalisAbroad");
+/*
+ * This block is only required if we want to
+ * read the data from database everytime
+ * its not required, since data is written
+ * to a json file when new data is pulled
+add_action("wp_footer", "updateDataNepalisAbroad");
 
 function updateDataNepalisAbroad(){
 	global $wpdb;
@@ -35,8 +40,18 @@ function updateDataNepalisAbroad(){
 
 	echo "</script>";
 }
+*
+* END of block for reading data directly from database
+*/
 
-register_deactivation_hook( __FILE__, 'na_nepalData_remove_database' );
+register_deactivation_hook( __FILE__, 'na_nepalData_remove_schedule' );
+
+function na_nepalData_remove_schedule() {
+   wp_clear_scheduled_hook('na_covid19Nepal_update_data');
+}
+
+register_uninstall_hook(__FILE__, 'na_nepalData_remove_database');
+
 function na_nepalData_remove_database() {
    global $wpdb;
 
@@ -45,7 +60,6 @@ function na_nepalData_remove_database() {
    $wpdb->query($naSql);
 
 	delete_option("$na_covid19Nepal_db_version");
-   wp_clear_scheduled_hook('na_covid19Nepal_update_data');
 }
 
 ?>

@@ -26,18 +26,25 @@ function na_covid19Nepal_install() {
 	) $charset_collate;";
 
 	require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
+	//dbDelta is loaded from upgrade.php
+	//dbDelta will only apply the delta from the create table statement
+	//so no need to check if table exists
 	dbDelta( $nepalisAbroadSql );
 	//END: TABLE CREATE FOR NEPALIS ABROAD
 
+	//add option also checks if already in WP
 	add_option( 'na_covid19Nepal_db_version', $na_covid19Nepal_db_version );
 
+	//check if schedule is already in place
 	if( !wp_next_scheduled( 'na_covid19Nepal_update_data' ) )
 	{
 		wp_schedule_event( time(), 'daily', 'na_covid19Nepal_update_data' );
 	}
 }
 
+//registering the function name to be called from wp_schedule
 add_action('na_covid19Nepal_update_data', 'na_covid19Nepal_install_data');
+
 function na_covid19Nepal_install_data() {
 
 	global $wpdb;
