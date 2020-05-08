@@ -64,7 +64,7 @@ function na_nepalData_remove_database() {
    $naSql = "DROP TABLE IF EXISTS $na_table_name";
    $wpdb->query($naSql);
 
-	delete_option("$na_covid19Nepal_db_version");
+	delete_option("na_covid19Nepal_db_version");
 }
 
 ?>
