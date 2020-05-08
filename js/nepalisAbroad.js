@@ -1,6 +1,6 @@
 var covidNepalisAbroad=
 										{
-											asOfDate: "2020-05-07",
+											asOfDate: "2020-05-08",
 											total: {
 					infected: "5324",
 					fatality: "73",
