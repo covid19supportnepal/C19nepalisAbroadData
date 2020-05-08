@@ -15,7 +15,7 @@ function na_covid19Nepal_install() {
 	$nepalisAbroadSql = "CREATE TABLE $na_table_name (
 		id mediumint(9) NOT NULL AUTO_INCREMENT,
 		insertTime datetime DEFAULT '0000-00-00 00:00:00' NOT NULL,
-		groupDate int NOT NULL,
+		groupDate int(11) NOT NULL,
 		asOfTime datetime DEFAULT '0000-00-00 00:00:00' NOT NULL,
 		country varchar(20) NOT NULL,
 		region varchar(20) NOT NULL,
@@ -118,6 +118,3 @@ function na_covid19Nepal_install_data() {
 	fclose( $open );
 	//END: FETCH NEPALIS ABROAD
 }
-
-
-

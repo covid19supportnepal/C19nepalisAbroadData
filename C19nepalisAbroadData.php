@@ -13,7 +13,12 @@ defined( 'ABSPATH' ) or die( 'No direct access please!' );
 
 include_once dirname( __FILE__ ) . '/db.php';
 register_activation_hook( __FILE__, 'na_covid19Nepal_install' );
+/*
+ * No need to run data at installation,
+ * as this is scheduled in the na_covid19Nepal_install routine itself
+ *
 register_activation_hook( __FILE__, 'na_covid19Nepal_install_data' );
+ */
 
 /*
  * This block is only required if we want to
