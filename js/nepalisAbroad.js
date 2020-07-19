@@ -1,23 +1,23 @@
 var covidNepalisAbroad=
 										{
-											asOfDate: "2020-05-08",
+											asOfDate: "2020-06-17",
 											total: {
-					infected: "5324",
-					fatality: "73",
-					recovered: "1579"
+					infected: "23125",
+					fatality: "145",
+					recovered: "9917"
 				},
 											countries: [{
 					country: "Australia",
 					region: "Oceania",
-					infected: "11",
+					infected: "12",
 					fatality: "",
 					recovered: ""
 				},{
 					country: "Bahrain",
 					region: "Middle East",
-					infected: "126",
-					fatality: "",
-					recovered: "50"
+					infected: "440",
+					fatality: "3",
+					recovered: "105"
 				},{
 					country: "Belgium",
 					region: "Europe",
@@ -27,15 +27,27 @@ var covidNepalisAbroad=
 				},{
 					country: "Canada",
 					region: "Americas",
-					infected: "5",
+					infected: "24",
 					fatality: "",
-					recovered: "4"
+					recovered: "18"
 				},{
 					country: "Cyprus",
 					region: "Europe",
 					infected: "3",
 					fatality: "",
 					recovered: ""
+				},{
+					country: "Denmark",
+					region: "Europe",
+					infected: "55",
+					fatality: "",
+					recovered: ""
+				},{
+					country: "Finland",
+					region: "Europe",
+					infected: "4",
+					fatality: "",
+					recovered: "4"
 				},{
 					country: "France",
 					region: "Europe",
@@ -55,6 +67,12 @@ var covidNepalisAbroad=
 					fatality: "",
 					recovered: ""
 				},{
+					country: "India",
+					region: "Asia",
+					infected: "2",
+					fatality: "",
+					recovered: ""
+				},{
 					country: "Ireland",
 					region: "Europe",
 					infected: "22",
@@ -63,25 +81,25 @@ var covidNepalisAbroad=
 				},{
 					country: "Japan",
 					region: "Asia",
-					infected: "6",
+					infected: "10",
 					fatality: "1",
 					recovered: "1"
 				},{
 					country: "Kuwait",
 					region: "Middle East",
-					infected: "78",
-					fatality: "",
+					infected: "650",
+					fatality: "3",
 					recovered: ""
 				},{
 					country: "Malaysia",
 					region: "Asia",
-					infected: "3",
+					infected: "89",
 					fatality: "",
 					recovered: ""
 				},{
 					country: "Maldives",
 					region: "Asia",
-					infected: "2",
+					infected: "17",
 					fatality: "",
 					recovered: ""
 				},{
@@ -99,9 +117,9 @@ var covidNepalisAbroad=
 				},{
 					country: "Nepal",
 					region: "Asia",
-					infected: "75",
-					fatality: "",
-					recovered: "16"
+					infected: "5,335",
+					fatality: "18",
+					recovered: "913"
 				},{
 					country: "New Zealand",
 					region: "Oceania",
@@ -111,25 +129,43 @@ var covidNepalisAbroad=
 				},{
 					country: "Portugal",
 					region: "Europe",
-					infected: "27",
+					infected: "42",
 					fatality: "",
 					recovered: "3"
+				},{
+					country: "Poland",
+					region: "Europe",
+					infected: "2",
+					fatality: "",
+					recovered: ""
 				},{
 					country: "Qatar",
 					region: "Middle East",
-					infected: "2300",
+					infected: "10000",
+					fatality: "4",
+					recovered: "5000"
+				},{
+					country: "Russia",
+					region: "Europe",
+					infected: "2",
 					fatality: "",
-					recovered: "700"
+					recovered: ""
+				},{
+					country: "Romania",
+					region: "Europe",
+					infected: "1",
+					fatality: "",
+					recovered: ""
 				},{
 					country: "Saudi Arabia",
 					region: "Middle East",
-					infected: "30",
-					fatality: "",
-					recovered: "3"
+					infected: "1500",
+					fatality: "9",
+					recovered: "500"
 				},{
 					country: "Spain",
 					region: "Europe",
-					infected: "12",
+					infected: "13",
 					fatality: "",
 					recovered: "10"
 				},{
@@ -139,6 +175,12 @@ var covidNepalisAbroad=
 					fatality: "",
 					recovered: "3"
 				},{
+					country: "Sweden",
+					region: "Europe",
+					infected: "1",
+					fatality: "1",
+					recovered: "2"
+				},{
 					country: "The Netherlands",
 					region: "Europe",
 					infected: "",
@@ -147,26 +189,32 @@ var covidNepalisAbroad=
 				},{
 					country: "Turkey",
 					region: "Europe",
-					infected: "",
+					infected: "57",
 					fatality: "1",
 					recovered: ""
 				},{
 					country: "United Arab Emirates",
 					region: "Middle East",
-					infected: "100",
-					fatality: "5",
-					recovered: "15"
+					infected: "1600",
+					fatality: "19",
+					recovered: "725"
 				},{
 					country: "United Kingdom",
 					region: "Europe",
-					infected: "1000",
-					fatality: "49",
-					recovered: "250"
+					infected: "1517",
+					fatality: "67",
+					recovered: "1309"
 				},{
 					country: "USA",
 					region: "Americas",
-					infected: "1500",
-					fatality: "15",
-					recovered: "500"
+					infected: "1700",
+					fatality: "17",
+					recovered: "1300"
+				},{
+					country: "Africa",
+					region: "Africa",
+					infected: "3",
+					fatality: "0",
+					recovered: "0"
 				}]
 										};
